@@ -14,12 +14,62 @@ Given an integer `x`, return the **sum of its digits** if `x` is a Harshad numbe
 
 ## Task 1 — Find if a number is a Harshad Number
 
+### Complete Java Code (Runs in CMD)
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int x = sc.nextInt();
+
+        // calculate digit sum
+        int sum = 0;
+        int temp = x;
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+
+        // check harshad
+        if (x % sum == 0) {
+            System.out.println(x + " is a Harshad Number!");
+            System.out.println("Sum of digits = " + sum);
+        } else {
+            System.out.println(x + " is NOT a Harshad Number!");
+            System.out.println("Sum of digits = " + sum);
+        }
+    }
+}
+```
+
+### How to Run in CMD
+
+```
+javac Main.java
+java Main
+```
+
 ### Examples
 
 | Input | Digit Sum | Divisible? | Output |
 |-------|-----------|------------|--------|
-| x = 18 | 1+8 = 9 | 18 % 9 == 0 ✅ | 9 |
-| x = 23 | 2+3 = 5 | 23 % 5 != 0 ❌ | -1 |
+| x = 18 | 1+8 = 9 | 18 % 9 == 0 ✅ | Harshad Number! |
+| x = 23 | 2+3 = 5 | 23 % 5 != 0 ❌ | NOT a Harshad Number! |
+
+### Sample Output
+
+```
+Enter a number: 18
+18 is a Harshad Number!
+Sum of digits = 9
+
+Enter a number: 23
+23 is NOT a Harshad Number!
+Sum of digits = 5
+```
 
 ---
 
@@ -91,8 +141,4 @@ Iteration 2: sum += 2  % 10 → sum = 5, temp = 0
 No server is available to handle this request.
 ```
 
-
-```
-
 ---
-
